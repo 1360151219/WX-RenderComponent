@@ -1,0 +1,15 @@
+<view class="render-wrap">
+  <view class="{{item.isHoleId!=null?'render-link-wrap':'render-content'}}" wx:for="{{contentArr}}">
+    <view class="render-h1" wx:if="{{item.isH1}}">{{item.val}}</view>
+    <view class="render-h2" wx:elif="{{item.isH2}}">{{item.val}}</view>
+    <view class="render-h3" wx:elif="{{item.isH3}}">{{item.val}}</view>
+    <view class="render-h4" wx:elif="{{item.isH4}}">{{item.val}}</view>
+    <view class="render-h5" wx:elif="{{item.isH5}}">{{item.val}}</view>
+    <view class="render-h6" wx:elif="{{item.isH6}}">{{item.val}}</view>
+    <view class="render-li" wx:elif="{{item.isLi}}">
+      <text space="emsp">{{item.val1+'•'+item.val2}}</text>
+    </view>
+    <navigator wx:elif="{{item.isHoleId}}" class="render-holeid" url="{{'/pages/hole/hole-item/hole-item?holeId='+item.holeId}}" open-type="navigate"> {{item.val}} </navigator>
+    <text wx:else>{{item.val}}</text>
+  </view>
+</view>

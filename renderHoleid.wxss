@@ -1,0 +1,45 @@
+.render-content{
+  display: block;
+  font-size: 28rpx;
+  line-height:30rpx;
+}
+.render-link-wrap{
+  display: inline-block;
+}
+.render-h1{
+  font-size: 60rpx;
+  font-weight: 600;
+  line-height: 64rpx;
+}
+.render-h2{
+  font-size: 48rpx;
+  line-height: 52rpx;
+  font-weight: 600;
+}
+.render-h3{
+  font-size: 36rpx;
+  line-height: 40rpx;
+  font-weight: 600;
+}
+.render-h4{
+  font-size: 30rpx;
+  line-height: 34rpx;
+}
+.render-h5{
+  font-size: 28rpx;
+  line-height: 32rpx;
+}
+.render-h6{
+  font-size: 24rpx;
+  line-height: 28rpx;
+}
+.render-li{
+  list-style-type: circle;
+  list-style-position: inside;
+}
+.render-holeid{
+  display: inline-block;
+  color: #148b68;
+  border-bottom: 1px solid #148b68;
+  margin: 0 10rpx;
+}
