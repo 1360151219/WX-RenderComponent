@@ -37,6 +37,15 @@
   list-style-type: circle;
   list-style-position: inside;
 }
+.render-del{
+  
+}
+.render-bold{
+  font-weight: bold;
+}
+.render-italic{
+  font-style: italic;
+}
 .render-holeid{
   display: inline-block;
   color: #148b68;

@@ -1,5 +1,5 @@
 <view class="render-wrap">
-  <view class="{{item.isHoleId!=null?'render-link-wrap':'render-content'}}" wx:for="{{contentArr}}">
+  <view class="{{item.isinLine?'render-link-wrap':'render-content'}}" wx:for="{{contentArr}}" wx:key="this">
     <view class="render-h1" wx:if="{{item.isH1}}">{{item.val}}</view>
     <view class="render-h2" wx:elif="{{item.isH2}}">{{item.val}}</view>
     <view class="render-h3" wx:elif="{{item.isH3}}">{{item.val}}</view>
@@ -7,9 +7,30 @@
     <view class="render-h5" wx:elif="{{item.isH5}}">{{item.val}}</view>
     <view class="render-h6" wx:elif="{{item.isH6}}">{{item.val}}</view>
     <view class="render-li" wx:elif="{{item.isLi}}">
-      <text space="emsp">{{item.val1+'•'+item.val2}}</text>
+      <text space="emsp">{{item.val1+'• '+item.val2}}</text>
     </view>
-    <navigator wx:elif="{{item.isHoleId}}" class="render-holeid" url="{{'/pages/hole/hole-item/hole-item?holeId='+item.holeId}}" open-type="navigate"> {{item.val}} </navigator>
+    <view wx:elif="{{item.boldItem}}">
+      <text wx:for="{{item.boldItem}}" wx:for-item="b" wx:key="this">
+        <text wx:if="{{b.isBold!==null}}" class="{{b.isBold?'render-bold':''}}">{{b.val}}</text>
+        <text wx:if="{{b.italicItem}}">
+          <text wx:for="{{b.italicItem}}" wx:for-item="i" wx:key="val">
+            <text class="{{i.isItalic?'render-italic':''}}">{{i.val}}</text>
+          </text>
+        </text>
+      </text>
+    </view>
+    <view wx:elif="{{item.italicItem}}">
+      <text wx:for="{{item.italicItem}}" wx:for-item="i" wx:key="val">
+        <text class="{{i.isItalic?'render-italic':''}}">{{i.val}}</text>
+      </text>
+    </view>
+    <view wx:elif="{{item.idItem}}">
+      <view wx:for="{{item.idItem}}" wx:for-item="id" class="render-link-wrap" wx:key="val">
+        <navigator wx:if="{{id.isHoleId}}" class="render-holeid" url="{{'/pages/hole/hole-item/hole-item?holeId='+id.holeId}}" open-type="navigate"> {{id.val}} </navigator>
+        <text wx:else>{{id.val}}</text>
+      </view>
+    </view>
+    
     <text wx:else>{{item.val}}</text>
   </view>
 </view>
