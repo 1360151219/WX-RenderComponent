@@ -1,7 +1,11 @@
+.render-wrap{
+  margin-bottom: -10rpx;
+}
 .render-content{
   display: block;
   font-size: 28rpx;
-  line-height:30rpx;
+  line-height:42rpx;
+  margin: 10rpx;
 }
 .render-link-wrap{
   display: inline-block;
@@ -9,29 +13,29 @@
 .render-h1{
   font-size: 60rpx;
   font-weight: 600;
-  line-height: 64rpx;
+  line-height: 80rpx;
 }
 .render-h2{
   font-size: 48rpx;
-  line-height: 52rpx;
+  line-height: 68rpx;
   font-weight: 600;
 }
 .render-h3{
   font-size: 36rpx;
-  line-height: 40rpx;
+  line-height: 56rpx;
   font-weight: 600;
 }
 .render-h4{
   font-size: 30rpx;
-  line-height: 34rpx;
+  line-height: 50rpx;
 }
 .render-h5{
   font-size: 28rpx;
-  line-height: 32rpx;
+  line-height: 40rpx;
 }
 .render-h6{
   font-size: 24rpx;
-  line-height: 28rpx;
+  line-height: 36rpx;
 }
 .render-li{
   list-style-type: circle;

@@ -1,4 +1,6 @@
 // component/renderHoleid.js
+const App = getApp();
+
 Component({
   /**
    * 组件的属性列表
@@ -6,7 +8,11 @@ Component({
   properties: {
     content: {
       type: String,
-      value: '# 无敌最强最坚 \n ## 无敌最强最坚 \n ### 无敌最强最坚\n gggg\n#### 无敌最强最坚\n ##### 无敌最强最坚\n ###### 无敌最强最坚\n - 我是无敌的\n    跳转#50000是这也的\n测试 \n**加粗**表*格* \n- 我是无敌的2\n*我是斜体*'
+      value: '# 无敌最强最坚 \n ## 无敌最强最坚 \n ### 无敌最强最坚\n gggg\n#### 无敌最强最坚\n ##### 无敌最强最坚\n ###### 无敌最强最坚\n - 我是无敌的\n    跳转#50000是这也的\n测试 \n**加粗**表*格* \n- 我是无敌的2\n*我是斜体*噢\n~~哈哈~~'
+    },
+    isReply:{
+      type:Boolean,
+      value:false
     }
   },
   lifetimes: {
@@ -33,6 +39,15 @@ Component({
       const inputParagraph = input.split('\n')
       let contentArr = this.data.contentArr
       for (let paragraph of inputParagraph) {
+        const md=(paragraph.includes('# ') && paragraph.includes('- '))||(paragraph.includes('~~')&&!paragraph.match(/#[\d]*/))||(this.data.isReply&&!paragraph.match(/#[\d]*/))
+        if(md){
+          contentArr.push({val:App.markdown(paragraph),isMd:true})
+          this.setData({
+            contentArr,
+          })
+          continue
+        }
+        
         const text = paragraph.includes('# ') || paragraph.includes('- ')
         if (!text) {
          this.renderText(contentArr, paragraph)
